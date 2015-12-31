@@ -29,7 +29,7 @@
 
 (when casey-win32 
   (setq casey-makescript "build.bat")
-  (setq casey-font "outline-Liberation Mono")
+  (setq casey-font "outline-Courier New")
 )
 
 (when casey-aquamacs 
@@ -243,8 +243,7 @@
      (insert "   $File: $\n")
      (insert "   $Date: $\n")
      (insert "   $Revision: $\n")
-     (insert "   $Creator: Casey Muratori $\n")
-     (insert "   $Notice: (C) Copyright 2015 by Molly Rocket, Inc. All Rights Reserved. $\n")
+     (insert "   $Creator: Yavor Krastyovski $\n")
      (insert "   ======================================================================== */\n")
      (insert "\n")
      (insert "#define ")
@@ -398,13 +397,18 @@
   (forward-line -1)
 )
 
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(transient-mark-mode 1) ;; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+
 (define-key global-map [C-right] 'forward-word)
 (define-key global-map [C-left] 'backward-word)
 (define-key global-map [C-up] 'previous-blank-line)
 (define-key global-map [C-down] 'next-blank-line)
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
-(define-key global-map [pgup] 'forward-page)
+(define-key global-map [pgup] 'forward-pagorward-page)
 (define-key global-map [pgdown] 'backward-page)
 (define-key global-map [C-next] 'scroll-other-window)
 (define-key global-map [C-prior] 'scroll-other-window-down)
@@ -578,8 +582,8 @@
     nil)
 (setq split-window-preferred-function 'casey-never-split-a-window)
 
-(add-to-list 'default-frame-alist '(font . "Liberation Mono-11.5"))
-(set-face-attribute 'default t :font "Liberation Mono-11.5")
+(add-to-list 'default-frame-alist '(font . "Liberation Mono-8.5"))
+(set-face-attribute 'default t :font "Liberation Mono-8.5")
 (set-face-attribute 'font-lock-builtin-face nil :foreground "#DAB98F")
 (set-face-attribute 'font-lock-comment-face nil :foreground "gray50")
 (set-face-attribute 'font-lock-constant-face nil :foreground "olive drab")
